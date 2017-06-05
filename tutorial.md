@@ -23,19 +23,14 @@ $ git clone https://github.com/watson-developer-cloud/simple-chat-swift.git
 $ git checkout tutorial
 ```
 
-The Watson Swift SDK dependency will need to be downloaded independently for the playground and app.
+We also need to download the Watson Swift SDK dependency for use in our code. The dependency will be loaded twice, once as a Git submodule (for use in an Xcode playground) and again with Carthage (for use in an iOS app).
 
-The playground environment requires a clone of the entire `swift-sdk` repository, which is configured as a Git submodule. To fetch it, run the following commands:
-
-```bash
-git submodule init
-git submodule update
-```
-
-The app uses [Carthage](https://github.com/Carthage/Carthage) to manage the Watson Swift SDK dependency. Navigate to the `Simple Chat` directory then download the SDK with Carthage:
+The following commands will load the Watson Swift SDK dependency:
 
 ```bash
 cd simple-chat
+git submodule init
+git submodule update
 carthage update --platform iOS
 ```
 
