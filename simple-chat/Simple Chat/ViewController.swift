@@ -77,54 +77,22 @@ extension ViewController {
     
     /// Start a new conversation
     func startConversation() {
-        conversation.message(
-            withWorkspace: workspace,
-            failure: failure,
-            success: presentResponse
-        )
+        // TODO
     }
     
     /// Present a conversation reply and speak it to the user
     func presentResponse(_ response: MessageResponse) {
-        guard let text = response.output.text.first else { return }
-        context = response.context // save context to continue conversation
-        
-        // synthesize and speak the response
-        textToSpeech.synthesize(text, failure: failure) { audio in
-            self.audioPlayer = try! AVAudioPlayer(data: audio)
-            self.audioPlayer?.prepareToPlay()
-            self.audioPlayer?.play()
-        }
-        
-        // create message
-        let message = JSQMessage(
-            senderId: User.watson.rawValue,
-            displayName: User.getName(User.watson),
-            text: text
-        )
-        
-        // add message to chat window
-        if let message = message {
-            self.messages.append(message)
-            DispatchQueue.main.async { self.finishSendingMessage() }
-        }
+        // TODO
     }
     
     /// Start transcribing microphone audio
     func startTranscribing() {
-        audioPlayer?.stop()
-        var settings = RecognitionSettings(contentType: .opus)
-        settings.continuous = true
-        settings.interimResults = true
-        speechToText.recognizeMicrophone(settings: settings, failure: failure) { results in
-            self.inputToolbar.contentView.textView.text = results.bestTranscript
-            self.inputToolbar.toggleSendButtonEnabled()
-        }
+        // TODO
     }
     
     /// Stop transcribing microphone audio
     func stopTranscribing() {
-        speechToText.stopRecognizeMicrophone()
+        // TODO
     }
 }
 
@@ -176,14 +144,7 @@ extension ViewController {
             self.finishSendingMessage(animated: true)
         }
         
-        // send text to conversation service
-        let request = MessageRequest(text: text, context: context)
-        conversation.message(
-            withWorkspace: workspace,
-            request: request,
-            failure: failure,
-            success: presentResponse
-        )
+        // TODO: send text to conversation service
     }
     
     override func didPressAccessoryButton(_ sender: UIButton!) {

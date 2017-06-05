@@ -31,10 +31,4 @@ let textToSpeech = TextToSpeech(
 // Instantiate audio player
 var audioPlayer: AVAudioPlayer?
 
-// Synthesize text to spoken word
-let text = "Sure thing! Which genre would you prefer? Jazz is my personal favorite."
-textToSpeech.synthesize(text) { audio in
-    audioPlayer = try! AVAudioPlayer(data: audio)
-    audioPlayer?.prepareToPlay()
-    audioPlayer?.play()
-}
+// TODO: Synthesize text to spoken word

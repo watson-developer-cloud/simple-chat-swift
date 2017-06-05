@@ -31,8 +31,4 @@ let speechToText = SpeechToText(
 let recordingPath = Bundle.main.path(forResource: "TurnRadioOn", ofType: "wav")!
 let recording = URL(fileURLWithPath: recordingPath)
 
-// Transcribe audio recording
-let settings = RecognitionSettings(contentType: .wav)
-speechToText.recognize(audio: recording, settings: settings) { text in
-    print(text.bestTranscript)
-}
+// TODO: Transcribe audio recording
