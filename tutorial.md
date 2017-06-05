@@ -67,7 +67,7 @@ Start by renaming the `Credentials.swift.example` file in your project directory
 4. Select "View credentials".
 5. Copy the username and password into `Credentials.swift`.
 
-Repeat these steps to copy the credentials for the Speech to Text, Conversation, and Text to Speech services.
+Repeat these steps to copy the username and password credentials for the Speech to Text, Conversation, and Text to Speech services.
 
 ## Create Conversation Workspace
 
@@ -77,7 +77,7 @@ The Conversation service uses workspaces to maintain separate dialog flows and t
 2. Click the "Launch tool" button.
 3. Select the "Car Dashboard - Sample" to create a new workspace.
 4. Select the bottom icon of the left-hand navigation menu to return to the list of workspaces.
-5. Select the ellipsis on the top-right of the "Car Dashboard - Sample" workspace.
+5. Select the ellipsis on the top-right corner of the "Car Dashboard - Sample" workspace.
 6. Select "View Details" then copy the "Workspace ID".
 7. Paste the workspace id into your `Credentials.swift` file.
 
@@ -207,7 +207,7 @@ We will build our application by modifying a provided starter app.
 
 The provided starter app already includes the user interface and Watson Swift SDK. It will be helpful to understand the starter app before modifying it.
 
-To view the starter app, open `Simple Chat.xcworkspace` in Xcode. Copy your `Credentials.swift` file into the `Simple Chat` folder, then run the app in the simulator. You'll notice that messages are echoed in response, and the microphone button prints a message whenever it is pushed down or released. Open `ViewController.swift` in Xcode to skim the provided code.
+To view the starter app, open `Simple Chat.xcworkspace` in Xcode. Copy your `Credentials.swift` file into the `Simple Chat` folder, then run the app in the simulator. Open `ViewController.swift` in Xcode to skim the provided code.
 
 ### Conversation Greeting
 
