@@ -1,0 +1,3 @@
+[submodule "simple-chat-playground/swift-sdk"]
+	path = simple-chat-playground/swift-sdk
+	url = https://github.com/watson-developer-cloud/swift-sdk
