@@ -16,22 +16,15 @@ This tutorial teaches you how to build a cognitive app with [IBM Watson](https:/
 
 ## Project Setup
 
-Before starting the tutorial, be sure to checkout the `tutorial` branch:
+Before starting the tutorial, be sure to checkout the `tutorial` branch. We also need to download the Watson Swift SDK dependency for use in our code. (The dependency will be loaded twice, once as a Git submodule for use in an Xcode playground, and again with Carthage for use in an iOS app.)
 
 ```bash
 $ git clone https://github.com/watson-developer-cloud/simple-chat-swift.git
 $ git checkout tutorial
-```
-
-We also need to download the Watson Swift SDK dependency for use in our code. The dependency will be loaded twice, once as a Git submodule (for use in an Xcode playground) and again with Carthage (for use in an iOS app).
-
-The following commands will load the Watson Swift SDK dependency:
-
-```bash
-cd simple-chat
-git submodule init
-git submodule update
-carthage update --platform iOS
+$ cd simple-chat-swift/simple-chat
+$ git submodule init
+$ git submodule update
+$ carthage update --platform iOS
 ```
 
 ## Provision Services
