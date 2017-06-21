@@ -45,3 +45,20 @@ Start by renaming the `Credentials.swift.example` file in your project directory
 5. Copy the username and password into `Credentials.swift`.
 
 Repeat these steps to copy the username and password credentials for the Speech to Text, Conversation, and Text to Speech services.
+
+## Resources
+
+Watson Developer Cloud:
+- [Watson Developer Cloud](https://www.ibm.com/watson/developercloud/)
+- [Watson Developer Cloud GitHub](https://github.com/watson-developer-cloud)
+- [Watson Developer Cloud Swift SDK](https://github.com/watson-developer-cloud/swift-sdk)
+
+Watson Swift SDK:
+- [Readme](https://github.com/watson-developer-cloud/swift-sdk/blob/master/README.md)
+- [Quick Start Guide](https://github.com/watson-developer-cloud/swift-sdk/blob/master/docs/quickstart.md)
+- [Sample Apps](https://github.com/watson-developer-cloud/swift-sdk#sample-applications)
+- [Documentation](http://watson-developer-cloud.github.io/swift-sdk/)
+
+Swift@IBM:
+- [Swift@IBM Developer Center](https://developer.ibm.com/swift/)
+- [Kitura Developer Center](https://developer.ibm.com/swift/kitura/)
