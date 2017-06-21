@@ -322,3 +322,7 @@ Watson Swift SDK:
 - [Quick Start Guide](https://github.com/watson-developer-cloud/swift-sdk/blob/master/docs/quickstart.md)
 - [Sample Apps](https://github.com/watson-developer-cloud/swift-sdk#sample-applications)
 - [Documentation](http://watson-developer-cloud.github.io/swift-sdk/)
+
+Swift@IBM:
+- [Swift@IBM Developer Center](https://developer.ibm.com/swift/)
+- [Kitura Developer Center](https://developer.ibm.com/swift/kitura/)
