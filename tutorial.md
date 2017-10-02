@@ -119,7 +119,7 @@ Add the following code to start a new conversation:
 // Start conversation
 conversation.message(withWorkspace: workspace) { response in
     print(response.context.conversationID)
-    print(response.output.text.first!)
+    print(response.output.text.joined())
 }
 ```
 
@@ -133,13 +133,13 @@ Add the code below to continue the conversation and send the transcription:
 // Start conversation
 conversation.message(withWorkspace: workspace) { response in
     print(response.context.conversationID)
-    print(response.output.text.first!)
+    print(response.output.text.joined())
     
     // Continue conversation
     let text = " turn the radio on "
     let request = MessageRequest(text: text, context: response.context)
     conversation.message(withWorkspace: workspace, request: request) { response in
-        print(response.output.text.first!)
+        print(response.output.text.joined())
     }
 }
 ```
@@ -219,7 +219,7 @@ The response from the Conversation service is handled by the `presentResponse` s
 ```swift
 /// Present a conversation reply and speak it to the user
 func presentResponse(_ response: MessageResponse) {
-    guard let text = response.output.text.first else { return }
+    let text = response.output.text.joined()
     context = response.context // save context to continue conversation
     
     // TODO: synthesize and speak the response
