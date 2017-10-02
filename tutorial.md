@@ -20,8 +20,8 @@ Before starting the tutorial, be sure to checkout the `tutorial` branch. We also
 
 ```bash
 $ git clone https://github.com/watson-developer-cloud/simple-chat-swift.git
-$ git checkout tutorial
 $ cd simple-chat-swift/simple-chat
+$ git checkout tutorial
 $ git submodule init
 $ git submodule update
 $ carthage update --platform iOS
