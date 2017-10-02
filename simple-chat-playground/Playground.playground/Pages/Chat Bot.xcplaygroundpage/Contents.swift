@@ -58,7 +58,7 @@ speechToText.recognize(audio: recording, settings: settings) { text in
     conversation.message(withWorkspace: workspace) { response in
         let request = MessageRequest(text: text.bestTranscript, context: response.context)
         conversation.message(withWorkspace: workspace, request: request) { response in
-            let reply = response.output.text.first!
+            let reply = response.output.text.joined()
             print("Reply: \(reply)")
             
             // Synthesize response to spoken word
