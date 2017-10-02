@@ -114,7 +114,6 @@ extension ViewController {
     func startTranscribing() {
         audioPlayer?.stop()
         var settings = RecognitionSettings(contentType: .opus)
-        settings.continuous = true
         settings.interimResults = true
         speechToText.recognizeMicrophone(settings: settings, failure: failure) { results in
             self.inputToolbar.contentView.textView.text = results.bestTranscript
