@@ -288,7 +288,6 @@ Add the following code to the `startTranscribing` function to recognize micropho
 func startTranscribing() {
     audioPlayer?.stop()
     var settings = RecognitionSettings(contentType: .opus)
-    settings.continuous = true
     settings.interimResults = true
     speechToText.recognizeMicrophone(settings: settings, failure: failure) { results in
         self.inputToolbar.contentView.textView.text = results.bestTranscript
@@ -297,7 +296,7 @@ func startTranscribing() {
 }
 ```
 
-This `settings` object defines a configuration for our Speech to Text request. In this case, it identifies the audio format as Opus. Setting the `continuous` property to `true` means that the entire audio stream will be transcribed until it terminates, rather than stopping at the first half-second pause. The `interimResults` property enables our app to receive results as they are processed, instead of waiting for the entire audio recording to upload.
+This `settings` object defines a configuration for our Speech to Text request. In this case, it identifies the audio format as Opus. The `interimResults` property enables our app to receive results as they are processed, instead of waiting for the entire audio recording to upload. Note that the entire audio stream will be transcribed until it terminates.
 
 To stop recognizing microphone audio when the button is released, add the following code to the `stopTranscribing` function:
 
