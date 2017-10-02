@@ -86,7 +86,7 @@ extension ViewController {
     
     /// Present a conversation reply and speak it to the user
     func presentResponse(_ response: MessageResponse) {
-        guard let text = response.output.text.first else { return }
+        let text = response.output.text.joined()
         context = response.context // save context to continue conversation
         
         // synthesize and speak the response
