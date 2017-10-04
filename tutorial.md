@@ -20,8 +20,8 @@ Before starting the tutorial, be sure to checkout the `tutorial` branch. We also
 
 ```bash
 $ git clone https://github.com/watson-developer-cloud/simple-chat-swift.git
-$ git checkout tutorial
 $ cd simple-chat-swift/simple-chat
+$ git checkout tutorial
 $ git submodule init
 $ git submodule update
 $ carthage update --platform iOS
@@ -119,7 +119,7 @@ Add the following code to start a new conversation:
 // Start conversation
 conversation.message(withWorkspace: workspace) { response in
     print(response.context.conversationID)
-    print(response.output.text.first!)
+    print(response.output.text.joined())
 }
 ```
 
@@ -133,13 +133,13 @@ Add the code below to continue the conversation and send the transcription:
 // Start conversation
 conversation.message(withWorkspace: workspace) { response in
     print(response.context.conversationID)
-    print(response.output.text.first!)
+    print(response.output.text.joined())
     
     // Continue conversation
     let text = " turn the radio on "
     let request = MessageRequest(text: text, context: response.context)
     conversation.message(withWorkspace: workspace, request: request) { response in
-        print(response.output.text.first!)
+        print(response.output.text.joined())
     }
 }
 ```
@@ -219,7 +219,7 @@ The response from the Conversation service is handled by the `presentResponse` s
 ```swift
 /// Present a conversation reply and speak it to the user
 func presentResponse(_ response: MessageResponse) {
-    guard let text = response.output.text.first else { return }
+    let text = response.output.text.joined()
     context = response.context // save context to continue conversation
     
     // TODO: synthesize and speak the response
@@ -288,7 +288,6 @@ Add the following code to the `startTranscribing` function to recognize micropho
 func startTranscribing() {
     audioPlayer?.stop()
     var settings = RecognitionSettings(contentType: .opus)
-    settings.continuous = true
     settings.interimResults = true
     speechToText.recognizeMicrophone(settings: settings, failure: failure) { results in
         self.inputToolbar.contentView.textView.text = results.bestTranscript
@@ -297,7 +296,7 @@ func startTranscribing() {
 }
 ```
 
-This `settings` object defines a configuration for our Speech to Text request. In this case, it identifies the audio format as Opus. Setting the `continuous` property to `true` means that the entire audio stream will be transcribed until it terminates, rather than stopping at the first half-second pause. The `interimResults` property enables our app to receive results as they are processed, instead of waiting for the entire audio recording to upload.
+This `settings` object defines a configuration for our Speech to Text request. In this case, it identifies the audio format as Opus. The `interimResults` property enables our app to receive results as they are processed, instead of waiting for the entire audio recording to upload. Note that the entire audio stream will be transcribed until it terminates.
 
 To stop recognizing microphone audio when the button is released, add the following code to the `stopTranscribing` function:
 
