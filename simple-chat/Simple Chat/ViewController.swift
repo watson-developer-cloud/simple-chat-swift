@@ -86,7 +86,7 @@ extension ViewController {
     
     /// Present a conversation reply and speak it to the user
     func presentResponse(_ response: MessageResponse) {
-        guard let text = response.output.text.first else { return }
+        let text = response.output.text.joined()
         context = response.context // save context to continue conversation
         
         // synthesize and speak the response
@@ -114,7 +114,6 @@ extension ViewController {
     func startTranscribing() {
         audioPlayer?.stop()
         var settings = RecognitionSettings(contentType: .opus)
-        settings.continuous = true
         settings.interimResults = true
         speechToText.recognizeMicrophone(settings: settings, failure: failure) { results in
             self.inputToolbar.contentView.textView.text = results.bestTranscript
