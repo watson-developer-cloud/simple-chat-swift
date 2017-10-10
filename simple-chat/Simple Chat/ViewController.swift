@@ -72,7 +72,9 @@ extension ViewController {
             preferredStyle: .alert
         )
         alert.addAction(UIAlertAction(title: "Ok", style: .default))
-        present(alert, animated: true)
+        DispatchQueue.main.async {
+            self.present(alert, animated: true)
+        }
     }
     
     /// Start a new conversation
