@@ -80,7 +80,7 @@ extension ViewController {
     /// Start a new conversation
     func startConversation() {
         conversation.message(
-            withWorkspace: workspace,
+            workspaceID: workspace,
             failure: failure,
             success: presentResponse
         )
@@ -178,9 +178,10 @@ extension ViewController {
         }
         
         // send text to conversation service
-        let request = MessageRequest(text: text, context: context)
+        let input = InputData(text: text)
+        let request = MessageRequest(input: input, context: context)
         conversation.message(
-            withWorkspace: workspace,
+            workspaceID: workspace,
             request: request,
             failure: failure,
             success: presentResponse

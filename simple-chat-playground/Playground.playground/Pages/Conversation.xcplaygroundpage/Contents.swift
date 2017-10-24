@@ -32,14 +32,14 @@ let conversation = Conversation(
 let workspace = Credentials.ConversationWorkspace
 
 // Start conversation
-conversation.message(withWorkspace: workspace) { response in
+conversation.message(workspaceID: workspace) { response in
     print(response.context.conversationID)
     print(response.output.text.joined())
     
     // Continue conversation
-    let text = " turn the radio on "
-    let request = MessageRequest(text: text, context: response.context)
-    conversation.message(withWorkspace: workspace, request: request) { response in
+    let input = InputData(text: " turn the radio on ")
+    let request = MessageRequest(input: input, context: response.context)
+    conversation.message(workspaceID: workspace, request: request) { response in
         print(response.output.text.joined())
     }
 }
