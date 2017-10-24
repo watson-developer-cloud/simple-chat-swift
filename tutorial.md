@@ -18,7 +18,7 @@ This tutorial teaches you how to build a cognitive app with [IBM Watson](https:/
 
 Before starting the tutorial, be sure to checkout the `tutorial` branch. We also need to download the Watson Swift SDK dependency for use in our code. (The dependency will be loaded twice, once as a Git submodule for use in an Xcode playground, and again with Carthage for use in an iOS app.)
 
-```bash
+```
 $ git clone https://github.com/watson-developer-cloud/simple-chat-swift.git
 $ cd simple-chat-swift/simple-chat
 $ git checkout tutorial
@@ -117,7 +117,7 @@ Add the following code to start a new conversation:
 
 ```swift
 // Start conversation
-conversation.message(withWorkspace: workspace) { response in
+conversation.message(workspaceID: workspace) { response in
     print(response.context.conversationID)
     print(response.output.text.joined())
 }
@@ -131,14 +131,14 @@ Add the code below to continue the conversation and send the transcription:
 
 ```swift
 // Start conversation
-conversation.message(withWorkspace: workspace) { response in
+conversation.message(workspaceID: workspace) { response in
     print(response.context.conversationID)
     print(response.output.text.joined())
     
     // Continue conversation
-    let text = " turn the radio on "
-    let request = MessageRequest(text: text, context: response.context)
-    conversation.message(withWorkspace: workspace, request: request) { response in
+    let input = InputData(text: " turn the radio on ")
+    let request = MessageRequest(input: input, context: response.context)
+    conversation.message(workspaceID: workspace, request: request) { response in
         print(response.output.text.joined())
     }
 }
@@ -207,7 +207,7 @@ Our application already has a `startConversation` stub that is executed by `view
 /// Start a new conversation
 func startConversation() {
     conversation.message(
-        withWorkspace: workspace,
+        workspaceID: workspace,
         failure: failure,
         success: presentResponse
     )
@@ -249,9 +249,10 @@ Add the following code to the end of the `didPressSend` function:
 
 ```swift
 // send text to conversation service
-let request = MessageRequest(text: text, context: context)
+let input = InputData(text: text)
+let request = MessageRequest(input: input, context: context)
 conversation.message(
-    withWorkspace: workspace,
+    workspaceID: workspace,
     request: request,
     failure: failure,
     success: presentResponse
