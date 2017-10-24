@@ -14,7 +14,6 @@
 		6800B9291EE218EC00F2BD7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6800B9281EE218EC00F2BD7C /* Assets.xcassets */; };
 		6800B92C1EE218EC00F2BD7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6800B92A1EE218EC00F2BD7C /* LaunchScreen.storyboard */; };
 		681575191EE219C500E2F476 /* ConversationV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 681575151EE219C500E2F476 /* ConversationV1.framework */; };
-		6815751A1EE219C500E2F476 /* RestKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 681575161EE219C500E2F476 /* RestKit.framework */; };
 		6815751B1EE219C500E2F476 /* SpeechToTextV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 681575171EE219C500E2F476 /* SpeechToTextV1.framework */; };
 		6815751C1EE219C500E2F476 /* TextToSpeechV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 681575181EE219C500E2F476 /* TextToSpeechV1.framework */; };
 		6815751E1EE219EC00E2F476 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6815751D1EE219EC00E2F476 /* Credentials.swift */; };
@@ -32,7 +31,6 @@
 		6800B92B1EE218EC00F2BD7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6800B92D1EE218EC00F2BD7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		681575151EE219C500E2F476 /* ConversationV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ConversationV1.framework; path = Carthage/Build/iOS/ConversationV1.framework; sourceTree = "<group>"; };
-		681575161EE219C500E2F476 /* RestKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RestKit.framework; path = Carthage/Build/iOS/RestKit.framework; sourceTree = "<group>"; };
 		681575171EE219C500E2F476 /* SpeechToTextV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpeechToTextV1.framework; path = Carthage/Build/iOS/SpeechToTextV1.framework; sourceTree = "<group>"; };
 		681575181EE219C500E2F476 /* TextToSpeechV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TextToSpeechV1.framework; path = Carthage/Build/iOS/TextToSpeechV1.framework; sourceTree = "<group>"; };
 		6815751D1EE219EC00E2F476 /* Credentials.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
@@ -48,7 +46,6 @@
 				6815751C1EE219C500E2F476 /* TextToSpeechV1.framework in Frameworks */,
 				681575191EE219C500E2F476 /* ConversationV1.framework in Frameworks */,
 				642F51F9977D2B4C7F0C2B96 /* Pods_Simple_Chat.framework in Frameworks */,
-				6815751A1EE219C500E2F476 /* RestKit.framework in Frameworks */,
 				6815751B1EE219C500E2F476 /* SpeechToTextV1.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -69,7 +66,6 @@
 			isa = PBXGroup;
 			children = (
 				681575151EE219C500E2F476 /* ConversationV1.framework */,
-				681575161EE219C500E2F476 /* RestKit.framework */,
 				681575171EE219C500E2F476 /* SpeechToTextV1.framework */,
 				681575181EE219C500E2F476 /* TextToSpeechV1.framework */,
 				6F98792ECF89344B50C77911 /* Pods_Simple_Chat.framework */,
@@ -192,7 +188,6 @@
 				"$(SRCROOT)/Carthage/Build/iOS/TextToSpeechV1.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SpeechToTextV1.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/ConversationV1.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/RestKit.framework",
 			);
 			outputPaths = (
 			);
@@ -400,7 +395,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.glennrfisher.Simple-Chat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -418,7 +413,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.glennrfisher.Simple-Chat";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
