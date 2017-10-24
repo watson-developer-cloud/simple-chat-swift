@@ -113,7 +113,7 @@ extension ViewController {
     }
     
     /// Start transcribing microphone audio
-    func startTranscribing() {
+    @objc func startTranscribing() {
         audioPlayer?.stop()
         var settings = RecognitionSettings(contentType: .opus)
         settings.interimResults = true
@@ -124,7 +124,7 @@ extension ViewController {
     }
     
     /// Stop transcribing microphone audio
-    func stopTranscribing() {
+    @objc func stopTranscribing() {
         speechToText.stopRecognizeMicrophone()
     }
 }
