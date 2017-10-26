@@ -55,9 +55,10 @@ speechToText.recognize(audio: recording, settings: settings) { text in
     print("Transcription: \(text.bestTranscript)")
     
     // Send transcription as conversation request
-    conversation.message(withWorkspace: workspace) { response in
-        let request = MessageRequest(text: text.bestTranscript, context: response.context)
-        conversation.message(withWorkspace: workspace, request: request) { response in
+    conversation.message(workspaceID: workspace) { response in
+        let input = InputData(text: text.bestTranscript)
+        let request = MessageRequest(input: input, context: response.context)
+        conversation.message(workspaceID: workspace, request: request) { response in
             let reply = response.output.text.joined()
             print("Reply: \(reply)")
             

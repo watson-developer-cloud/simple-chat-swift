@@ -80,7 +80,7 @@ extension ViewController {
     /// Start a new conversation
     func startConversation() {
         conversation.message(
-            withWorkspace: workspace,
+            workspaceID: workspace,
             failure: failure,
             success: presentResponse
         )
@@ -113,7 +113,7 @@ extension ViewController {
     }
     
     /// Start transcribing microphone audio
-    func startTranscribing() {
+    @objc func startTranscribing() {
         audioPlayer?.stop()
         var settings = RecognitionSettings(contentType: .opus)
         settings.interimResults = true
@@ -124,7 +124,7 @@ extension ViewController {
     }
     
     /// Stop transcribing microphone audio
-    func stopTranscribing() {
+    @objc func stopTranscribing() {
         speechToText.stopRecognizeMicrophone()
     }
 }
@@ -178,9 +178,10 @@ extension ViewController {
         }
         
         // send text to conversation service
-        let request = MessageRequest(text: text, context: context)
+        let input = InputData(text: text)
+        let request = MessageRequest(input: input, context: context)
         conversation.message(
-            withWorkspace: workspace,
+            workspaceID: workspace,
             request: request,
             failure: failure,
             success: presentResponse
