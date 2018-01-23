@@ -1,3 +1,6 @@
 [submodule "simple-chat-playground/swift-sdk"]
 	path = simple-chat-playground/swift-sdk
 	url = https://github.com/watson-developer-cloud/swift-sdk
+[submodule "simple-chat-playground/Starscream"]
+	path = simple-chat-playground/Starscream
+	url = https://github.com/daltoniam/Starscream.git
