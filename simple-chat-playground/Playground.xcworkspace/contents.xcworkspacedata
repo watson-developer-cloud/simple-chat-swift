@@ -5,6 +5,9 @@
       location = "container:Playground.playground">
    </FileRef>
    <FileRef
+      location = "group:Starscream/Starscream.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:swift-sdk/WatsonDeveloperCloud.xcodeproj">
    </FileRef>
 </Workspace>
