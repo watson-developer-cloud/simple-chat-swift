@@ -92,8 +92,8 @@ extension ViewController {
         context = response.context // save context to continue conversation
         
         // synthesize and speak the response
-        textToSpeech.synthesize(text, failure: failure) { audio in
-            self.audioPlayer = try! AVAudioPlayer(data: audio)
+        textToSpeech.synthesize(text: text, accept: "audio/wav", failure: failure) { audio in
+            self.audioPlayer = try? AVAudioPlayer(data: audio)
             self.audioPlayer?.prepareToPlay()
             self.audioPlayer?.play()
         }
