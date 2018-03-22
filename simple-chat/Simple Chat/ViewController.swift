@@ -17,7 +17,7 @@
 import UIKit
 import JSQMessagesViewController
 import AVFoundation
-import ConversationV1
+import AssistantV1
 import SpeechToTextV1
 import TextToSpeechV1
 
@@ -27,12 +27,12 @@ class ViewController: JSQMessagesViewController {
     var incomingBubble: JSQMessagesBubbleImage!
     var outgoingBubble: JSQMessagesBubbleImage!
     
-    var conversation: Conversation!
+    var assistant: Assistant!
     var speechToText: SpeechToText!
     var textToSpeech: TextToSpeech!
     
     var audioPlayer: AVAudioPlayer?
-    var workspace = Credentials.ConversationWorkspace
+    var workspace = Credentials.AssistantWorkspace
     var context: Context?
     
     override func viewDidLoad() {
@@ -40,7 +40,7 @@ class ViewController: JSQMessagesViewController {
         setupInterface()
         setupSender()
         setupWatsonServices()
-        startConversation()
+        startAssistant()
     }
 }
 
@@ -49,9 +49,9 @@ extension ViewController {
     
     /// Instantiate the Watson services
     func setupWatsonServices() {
-        conversation = Conversation(
-            username: Credentials.ConversationUsername,
-            password: Credentials.ConversationPassword,
+        assistant = Assistant(
+            username: Credentials.AssistantUsername,
+            password: Credentials.AssistantPassword,
             version: "2017-05-26"
         )
         speechToText = SpeechToText(
@@ -78,8 +78,8 @@ extension ViewController {
     }
     
     /// Start a new conversation
-    func startConversation() {
-        conversation.message(
+    func startAssistant() {
+        assistant.message(
             workspaceID: workspace,
             failure: failure,
             success: presentResponse
@@ -92,8 +92,8 @@ extension ViewController {
         context = response.context // save context to continue conversation
         
         // synthesize and speak the response
-        textToSpeech.synthesize(text, failure: failure) { audio in
-            self.audioPlayer = try! AVAudioPlayer(data: audio)
+        textToSpeech.synthesize(text: text, accept: "audio/wav", failure: failure) { audio in
+            self.audioPlayer = try? AVAudioPlayer(data: audio)
             self.audioPlayer?.prepareToPlay()
             self.audioPlayer?.play()
         }
@@ -180,7 +180,7 @@ extension ViewController {
         // send text to conversation service
         let input = InputData(text: text)
         let request = MessageRequest(input: input, context: context)
-        conversation.message(
+        assistant.message(
             workspaceID: workspace,
             request: request,
             failure: failure,

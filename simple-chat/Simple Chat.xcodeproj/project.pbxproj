@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A4606DB2063F15C0078270C /* AssistantV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A4606DA2063F15C0078270C /* AssistantV1.framework */; };
 		642F51F9977D2B4C7F0C2B96 /* Pods_Simple_Chat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F98792ECF89344B50C77911 /* Pods_Simple_Chat.framework */; };
 		6800B9221EE218EC00F2BD7C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6800B9211EE218EC00F2BD7C /* AppDelegate.swift */; };
 		6800B9241EE218EC00F2BD7C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6800B9231EE218EC00F2BD7C /* ViewController.swift */; };
 		6800B9271EE218EC00F2BD7C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6800B9251EE218EC00F2BD7C /* Main.storyboard */; };
 		6800B9291EE218EC00F2BD7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6800B9281EE218EC00F2BD7C /* Assets.xcassets */; };
 		6800B92C1EE218EC00F2BD7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6800B92A1EE218EC00F2BD7C /* LaunchScreen.storyboard */; };
-		681575191EE219C500E2F476 /* ConversationV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 681575151EE219C500E2F476 /* ConversationV1.framework */; };
 		6815751B1EE219C500E2F476 /* SpeechToTextV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 681575171EE219C500E2F476 /* SpeechToTextV1.framework */; };
 		6815751C1EE219C500E2F476 /* TextToSpeechV1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 681575181EE219C500E2F476 /* TextToSpeechV1.framework */; };
 		6815751E1EE219EC00E2F476 /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6815751D1EE219EC00E2F476 /* Credentials.swift */; };
@@ -22,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A4606DA2063F15C0078270C /* AssistantV1.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssistantV1.framework; path = Carthage/Build/iOS/AssistantV1.framework; sourceTree = "<group>"; };
 		0C4EF683FECFFA3B813651AA /* Pods-Simple Chat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Chat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Chat/Pods-Simple Chat.debug.xcconfig"; sourceTree = "<group>"; };
 		661949F74760477C68416846 /* Pods-Simple Chat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Simple Chat.release.xcconfig"; path = "Pods/Target Support Files/Pods-Simple Chat/Pods-Simple Chat.release.xcconfig"; sourceTree = "<group>"; };
 		6800B91E1EE218EC00F2BD7C /* Simple Chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Simple Chat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,9 +46,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A4606DB2063F15C0078270C /* AssistantV1.framework in Frameworks */,
 				681AE98D200FCF060005C5C2 /* Starscream.framework in Frameworks */,
 				6815751C1EE219C500E2F476 /* TextToSpeechV1.framework in Frameworks */,
-				681575191EE219C500E2F476 /* ConversationV1.framework in Frameworks */,
 				642F51F9977D2B4C7F0C2B96 /* Pods_Simple_Chat.framework in Frameworks */,
 				6815751B1EE219C500E2F476 /* SpeechToTextV1.framework in Frameworks */,
 			);
@@ -68,6 +69,7 @@
 		0C0EFA4E2492FE6BEF29F089 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0A4606DA2063F15C0078270C /* AssistantV1.framework */,
 				681AE98C200FCF050005C5C2 /* Starscream.framework */,
 				681575151EE219C500E2F476 /* ConversationV1.framework */,
 				681575171EE219C500E2F476 /* SpeechToTextV1.framework */,
@@ -191,7 +193,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/TextToSpeechV1.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/SpeechToTextV1.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/ConversationV1.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/AssistantV1.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Starscream.framework",
 			);
 			outputPaths = (
