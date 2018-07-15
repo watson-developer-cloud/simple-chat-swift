@@ -115,10 +115,12 @@ extension ViewController {
     /// Start transcribing microphone audio
     @objc func startTranscribing() {
         audioPlayer?.stop()
-        var settings = RecognitionSettings(contentType: .opus)
+        var settings = RecognitionSettings(contentType: "audio/ogg;codecs=opus")
+        var accumulator = SpeechRecognitionResultsAccumulator()
         settings.interimResults = true
         speechToText.recognizeMicrophone(settings: settings, failure: failure) { results in
-            self.inputToolbar.contentView.textView.text = results.bestTranscript
+            accumulator.add(results: results)
+            self.inputToolbar.contentView.textView.text = accumulator.bestTranscript
             self.inputToolbar.toggleSendButtonEnabled()
         }
     }
